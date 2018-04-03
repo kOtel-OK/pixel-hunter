@@ -1,30 +1,6 @@
-const screens = document.querySelectorAll('template');
-const mainScreen = document.querySelector('main');
-let currentScreen = 0;
+import changeScreen from './module_render';
+import displayIntro from './module_intro';
 
-const changeScreen = (screenNum = 0) => {
-  mainScreen.innerHTML = screens[screenNum].innerHTML;
-};
+changeScreen(displayIntro());
 
-document.addEventListener('keydown', function (event) {
-  if (event.altKey === true) {
-    if (event.keyCode === 39) {
-      if (currentScreen < screens.length - 1 && currentScreen >= 0) {
-        currentScreen++;
-        changeScreen(currentScreen);
-      } else {
-        currentScreen;
-      }
-    }
-    if (event.keyCode === 37) {
-      if (currentScreen <= screens.length - 1 && currentScreen > 0) {
-        currentScreen--;
-        changeScreen(currentScreen);
-      } else {
-        currentScreen;
-      }
-    }
-  }
-});
 
-changeScreen();
